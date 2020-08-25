@@ -50,7 +50,7 @@ async function assert(req, res) {
     } catch (error) {
         console.log(error);
     }
-    let view = path.join(__dirname + "/../views/index.html");
+    let view = path.join(__dirname, "/../views/home.html");
     res.sendFile(view);
 }
 

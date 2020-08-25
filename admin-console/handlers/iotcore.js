@@ -9,7 +9,7 @@ const deviceId = process.env.deviceId;
 const projectId = process.env.projectId;
 const registryId = process.env.registryId;
 
-// Send configuration data to device.
+// Send command to device.
 async function sendCommand(req, res) {
     // [START iot_send_command]
     const iotClient = new iot.v1.DeviceManagerClient({
@@ -34,7 +34,7 @@ async function sendCommand(req, res) {
         const responses = await iotClient.sendCommandToDevice(request);
         return res.send("Sent command");
     } catch (err) {
-        return res.send("Could not send command: " + err);
+        return res.send("Could not send command");
     }
     // [END iot_send_command]
 }

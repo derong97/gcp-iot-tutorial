@@ -9,9 +9,12 @@ const iotcore = require("./handlers/iotcore");
 const app = express();
 app.use(express.static(path.join(__dirname, "views")));
 app.use(bodyParser.urlencoded({ extended: true }));
-app.use(bodyParser.json());
 
-app.get("/", iap.assert);
+//app.get("/", iap.assert);
+app.get("/", (req, res) => {
+    let view = path.join(__dirname, "/views/home.html");
+    res.sendFile(view);
+});
 app.post("/", iotcore.sendCommand);
 
 // Start the server

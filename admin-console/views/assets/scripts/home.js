@@ -3,7 +3,7 @@ const myForm = document.getElementById("myForm");
 myForm.addEventListener("submit", async(event) => {
     event.preventDefault();
 
-    let data = new URLSearchParams(new FormData(manualForm));
+    let data = new URLSearchParams(new FormData(myForm));
     let response = await fetch("/", {
         method: "post",
         body: data,
